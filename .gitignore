@@ -1,0 +1,7 @@
+node_modules/
+lib/
+.vscode/
+files/
+code.jpg
+config.json
+yarn-error.log
