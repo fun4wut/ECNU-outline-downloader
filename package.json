@@ -17,7 +17,8 @@
   "author": "Simon Ni",
   "bugs": "https://github.com/fun4wut/ECNU-outline-downloader/issues",
   "scripts": {
-    "build": "tsc"
+    "build": "./node_modules/.bin/tsc",
+    "start": "node --no-warnings ./lib/index.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",

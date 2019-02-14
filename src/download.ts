@@ -103,7 +103,7 @@ async function downloadBatch(subject: string, grade: number, semester: number,ro
     } catch  {
         Promise.reject()
     }
-    console.log(`已保存至${root}下`)
+    console.log(`已保存至${root}`)
 }
 
 //downloadBatch("COMC",1,2,path.resolve(__dirname,"../files"))
