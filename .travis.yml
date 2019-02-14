@@ -2,4 +2,5 @@ language : node_js
 node_js :
  - stable
 install:
- - yarn
+ - yarn --registry https://registry.npmjs.org/
+ - yarn run build
