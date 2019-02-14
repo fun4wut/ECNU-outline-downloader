@@ -4,5 +4,5 @@ node_js:
 before_install:
   - npm i -g yarn@1.12.3
 install:
- - yarn --registry https://registry.npmjs.org/
+ - yarn 
  - yarn run build
