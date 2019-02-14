@@ -1,5 +1,7 @@
 # ECNU-outline-downloader 
+[![Build Status](https://travis-ci.org/fun4wut/ECNU-outline-downloader.svg?branch=master)](https://travis-ci.org/fun4wut/ECNU-outline-downloader)
 
+## Intro
 本repo致力于解决下载ECNU的教学大纲繁琐的问题，仅需输入账户名，密码，百度API的密钥【用于图像识别】，和要下载的课程序号即可下载所有的课程大纲与本地
 
 ## Preparation
