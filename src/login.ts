@@ -50,7 +50,7 @@ async function getCode(token: string, pic:string): Promise<String> {
             .query({"access_token":token})
             .type("application/x-www-form-urlencoded")
             .send({"image": pic})    
-        console.log(JSON.parse(res.text))
+        //console.log(JSON.parse(res.text))
         return JSON.parse(res.text).words_result[0].words
     } catch (error) {
         console.log("请更换ACCESS_TOKEN！")

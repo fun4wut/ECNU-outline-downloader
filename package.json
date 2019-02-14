@@ -1,21 +1,39 @@
 {
-  "name": "hack-to-portal",
-  "version": "1.0.0",
+  "name": "ecnu-outliner",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
+  "description": "批量下载ECNU的课程大纲至本地",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fun4wut/ECNU-outline-downloader"
+  },
+  "keywords": [
+    "cli",
+    "ecnu",
+    "downloader",
+    "outline"
+  ],
+  "author": "Simon Ni",
+  "bugs": "https://github.com/fun4wut/ECNU-outline-downloader/issues",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
-    "@types/cheerio": "^0.22.10",
-    "@types/crypto-js": "^3.1.43",
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.19.0",
     "images": "^3.0.2",
     "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
     "superagent": "^4.1.0"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.10",
     "@types/commander": "^2.12.2",
+    "@types/crypto-js": "^3.1.43",
     "@types/images": "^2.2.2",
     "@types/lodash": "^4.14.120",
+    "@types/mkdirp": "^0.5.2",
     "@types/node": "^8.0.0",
     "@types/superagent": "^3.8.6",
     "typescript": "^3.3.3"

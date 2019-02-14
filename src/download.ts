@@ -3,10 +3,11 @@ import {agent,login,refreshToken} from './login'
 import cheerio from 'cheerio'
 import path from 'path'  
 import _ from 'lodash'
+import {mkdirpp,rootDir} from './other'
 const SEARCH_URL = "http://applicationnewjw.ecnu.edu.cn/eams/publicSearch!search.action"
 const BASE_URL = "http://applicationnewjw.ecnu.edu.cn"
 const HOME_URL = "http://applicationnewjw.ecnu.edu.cn/eams/home.action"
-const rootDir = path.resolve(__dirname,"../files")
+
 //标准的请求数据
 const standardFormData = {
     "lesson.project.id": 2,
@@ -64,20 +65,21 @@ async function serachBySubject(subject: string, grade: number, semester: number)
         )),'name')
     } catch{
         console.log("地址获取失败")
-        return Promise.reject()
+        return Promise.reject("地址获取失败")
     }
 }
-async function downloadSingle(e: DownloadTask) {
+async function downloadSingle(e: DownloadTask,root: string = rootDir) {
     let res = await agent.get(BASE_URL + e.link)
     const $ = cheerio.load(res.text)
     const uri = $(".gridtable > tbody tr a").attr("href")
     if (!uri) {
+        console.log("该课程无大纲："+e.name)
         Promise.reject("存在错误的uri")
     }
     else {
         res = await agent.get(BASE_URL+uri).responseType("blob")
-        const dirPath = path.resolve(rootDir,`${e.subject}/大${e.grade}${e.semester==1?'上':'下'}/${e.type}`)
-        mkdirs(dirPath)
+        const dirPath = path.resolve(root,`${e.subject}/大${e.grade}${e.semester==1?'上':'下'}/${e.type}`)
+        await mkdirpp(dirPath)
         fs.writeFile(path.resolve(dirPath,`${e.name}${doc(res.body)}`), res.body,(err)=>{
             if (err){
                 console.log("下载失败，文件名："+e.name)
@@ -89,7 +91,7 @@ async function downloadSingle(e: DownloadTask) {
     
 }
 
-async function downloadBatch(subject: string, grade: number, semester: number) {
+async function downloadBatch(subject: string, grade: number, semester: number,root:string = rootDir) {
     try {
         await login()
         //获取sessionID
@@ -97,23 +99,16 @@ async function downloadBatch(subject: string, grade: number, semester: number) {
         const tasks = await serachBySubject(subject,grade,semester)
         
         // TODO:并发的粒度可以再细一点
-        Promise.all(tasks.map(e=>downloadSingle(e)))
+        Promise.all(tasks.map(e=>downloadSingle(e,root)))
     } catch  {
         Promise.reject()
     }
-
+    console.log(`已保存至${root}下`)
 }
 
-//downloadBatch("MATH",1,1)
+//downloadBatch("COMC",1,2,path.resolve(__dirname,"../files"))
 
-function mkdirs(dirName: string) {
-    if (fs.existsSync(dirName)) return true
-    if (mkdirs(path.dirname(dirName))){
-        fs.mkdirSync(dirName)
-        return true
-    }
-    return false
-}
+
 
 function doc(buff: Buffer): string {
     if (buff.slice(0,8).toString() 

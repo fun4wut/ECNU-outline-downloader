@@ -14,11 +14,12 @@ program.version("0.0.1")
     .option("-p, --password <password>","specify the password")
     .option("-A, --AK <AK>","specify the client_id")
     .option("-S, --SK <SK>","specify the client_secret" )
+    .option("-o, --output <output>","specify the output dir")
     
 
 program.command("go <subject>")
     .description("下载指定学科的大纲")
-    .action((subject) => download(subject,program.grade,program.semester))
+    .action((subject) => download(subject,program.grade,program.semester,program.output))
 
 program.command("show <param>")
     .description("检查参数")
