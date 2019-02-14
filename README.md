@@ -1,18 +1,17 @@
 # ECNU-outline-downloader 
 
-## Intro
 本repo致力于解决下载ECNU的教学大纲繁琐的问题，仅需输入账户名，密码，百度API的密钥【用于图像识别】，和要下载的课程序号即可下载所有的课程大纲与本地
 
 ## Preparation
 ### 获取百度云API的密钥
-1.  浏览器进入 ![百度云控制台](https://console.bce.baidu.com)，完成注册/登陆操作
+1.  浏览器进入 [百度云控制台](https://console.bce.baidu.com)，完成注册/登陆操作
 2.  右侧边栏找到`人工智能-文字识别`选项，点击进入
 3.  点击创建应用，填写完简易的表格，拿到AK和SK
 
 ### 安装node环境
-* windows下直接进入![官网](https://nodejs.org/zh-cn/)下载LTS版本
+* windows下直接进入[官网](https://nodejs.org/zh-cn/)下载LTS版本
 
-* *nix系推荐使用![nvm](https://github.com/creationix/nvm)
+* *nix系推荐使用[nvm](https://github.com/creationix/nvm)
 
 ### 初次使用请先安装依赖
 ```bash
