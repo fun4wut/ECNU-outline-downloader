@@ -29,7 +29,7 @@ vim ./config.json # 输入配置，token项可留空
 
 npm start refresh
 ```
-### Usage
+## Usage
 ```
 Options:
   -V, --version              output the version number
