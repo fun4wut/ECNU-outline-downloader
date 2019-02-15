@@ -1,9 +1,11 @@
 .vscode/
-.files/
+files/
 src/
+test/
 node_modules/
 .editorconfig
 .gitignore
 code.jpg
 config.json
 yarn-error.log
+*.config.js

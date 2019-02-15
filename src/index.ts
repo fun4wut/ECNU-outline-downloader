@@ -31,15 +31,19 @@ program.command("refresh")
 
 program.command("init")
     .description("初始化")
-    .action(async ()=>{
-        let token = await refreshToken(program.AK,program.SK,false)
-        saveConfig({
-            password: program.password,
-            user_name: program.username,
-            AK: program.AK,
-            SK: program.SK,
-            access_token: token
-        })
+    .action(()=>{
+        refreshToken(program.AK,program.SK,false)
+            .then(token => {
+                saveConfig({
+                    password: program.password,
+                    user_name: program.username,
+                    AK: program.AK,
+                    SK: program.SK,
+                    access_token: token
+                })
+            }).catch(()=>console.log("信息不足！"))
     })
 
 program.parse(process.argv)
+
+export default program

@@ -83,7 +83,7 @@ async function downloadSingle(e: DownloadTask,root: string = rootDir) {
         fs.writeFile(path.resolve(dirPath,`${e.name}${doc(res.body)}`), res.body,(err)=>{
             if (err){
                 console.log("下载失败，文件名："+e.name)
-                Promise.reject()
+                Promise.resolve()
             }
             else Promise.resolve()
         })
@@ -96,17 +96,20 @@ async function downloadBatch(subject: string, grade: number, semester: number,ro
         await login()
         //获取sessionID
         await agent.get(HOME_URL)
+            .catch(err=>console.log("数据库炸了！"))
         const tasks = await serachBySubject(subject,grade,semester)
         
         // TODO:并发的粒度可以再细一点
-        Promise.all(tasks.map(e=>downloadSingle(e,root)))
-    } catch  {
-        Promise.reject()
+        await Promise.all(tasks.map(e=>downloadSingle(e,root)))
+        console.log(`已保存至${root}`)
+    } catch(err)  {
+        console.log("下载失败")
+        Promise.reject(err)
     }
-    console.log(`已保存至${root}`)
+    
 }
 
-//downloadBatch("COMC",1,2,path.resolve(__dirname,"../files"))
+downloadBatch("COMC",2,2)
 
 
 

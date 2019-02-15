@@ -1,8 +1,8 @@
 import superagent from 'superagent'
 import encode from './des'
 import cheerio from 'cheerio'
-import {Config} from './other'
-const config: Config = require("../config.json")
+import {Config,configPath} from './other'
+const config: Config = require(configPath)
 import {CookieAccessInfo} from 'cookiejar'
 import images from 'images'
 import fs from 'fs'
@@ -70,16 +70,16 @@ async function refreshToken(AK = config.AK,SK = config.SK,save:boolean = true) {
         
         config.access_token = JSON.parse(res.text).access_token
         if (save)
-            fs.writeFileSync(path.resolve(__dirname,"../config.json"), JSON.stringify(config))
+            fs.writeFileSync(configPath, JSON.stringify(config))
         return config.access_token
     } catch (error) {
         console.log("刷新token失败")
-        return Promise.reject()
+        return ""
     } 
 }
 
 function saveConfig(newConfig: Config){
-    fs.writeFileSync(path.resolve(__dirname,"../config.json"), 
+    fs.writeFileSync(configPath, 
     // 增量式对config进行修改 ，先stringify再parse是为了删除undefined的字段
     JSON.stringify({...config, ...JSON.parse(JSON.stringify(newConfig))}))
 }

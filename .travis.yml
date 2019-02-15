@@ -4,5 +4,8 @@ node_js:
 before_install:
   - npm i -g yarn@1.12.3
 install:
- - yarn install
- - yarn run build
+  - yarn install
+  - yarn run build
+script:
+  - yarn test
+
