@@ -4,6 +4,7 @@ import cheerio from 'cheerio'
 import path from 'path'  
 import _ from 'lodash'
 import {mkdirpp,rootDir} from './other'
+import {doc} from './utils'
 const SEARCH_URL = "http://applicationnewjw.ecnu.edu.cn/eams/publicSearch!search.action"
 const BASE_URL = "http://applicationnewjw.ecnu.edu.cn"
 const HOME_URL = "http://applicationnewjw.ecnu.edu.cn/eams/home.action"
@@ -91,9 +92,9 @@ async function downloadSingle(e: DownloadTask,root: string = rootDir) {
     
 }
 
-async function downloadBatch(subject: string, grade: number, semester: number,root:string = rootDir) {
+async function downloadBatch(subject: string, grade: number, semester: number,root:string = rootDir,handMode = false) {
     try {
-        await login()
+        await login(handMode)
         //获取sessionID
         await agent.get(HOME_URL)
             .catch(err=>console.log("数据库炸了！"))
@@ -113,12 +114,6 @@ async function downloadBatch(subject: string, grade: number, semester: number,ro
 
 
 
-function doc(buff: Buffer): string {
-    if (buff.slice(0,8).toString() 
-    == Buffer.from([0xd0,0xcf,0x11,0xe0,0xa1,0xb1,0x1a,0xe1]).toString()) 
-        return ".doc"
-    else 
-        return ".docx"
-}
+
 
 export default downloadBatch;

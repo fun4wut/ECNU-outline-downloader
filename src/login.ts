@@ -7,21 +7,30 @@ import {CookieAccessInfo} from 'cookiejar'
 import images from 'images'
 import fs from 'fs'
 import path from 'path'
+import os from 'os'
+import { readLine } from './utils';
 const LOGIN_URL = "https://portal1.ecnu.edu.cn/cas/login?service=http%3A%2F%2Fportal.ecnu.edu.cn%2Fneusoftcas.jsp"
 const PIC_URL = "https://portal1.ecnu.edu.cn/cas/code"
 const OCR_URL = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"
 const TOKEN_URL = "https://aip.baidubce.com/oauth/2.0/token"
 const agent = superagent.agent().timeout(5000)
 
-async function login(userName:string = config.user_name, pwd:string = config.password) {
+async function login( handMode:boolean,userName:string = config.user_name, pwd:string = config.password) {
     const res = await agent.get(LOGIN_URL)
     let ltReg = /id="lt" name="lt" value="(.*?)" \/>/
     let executionReg = /name="execution" value="(.*?)" \/>/
     const lt = ltReg.exec(res.text)![1]
     const execution = executionReg.exec(res.text)![1]
     const rsa = encode(userName+pwd+lt,"1","2","3")
+    let code = ""
     let b64 = await downloadPic()
-    const code = await getCode(config.access_token,b64)
+    if (handMode){
+        console.log("请输入验证码")
+        code = await readLine()
+    }
+    else {
+        code = await getCode(config.access_token,b64)
+    }
     const res2 = await agent.post(LOGIN_URL).type("application/x-www-form-urlencoded").send({
         code,
         loginFace: "",
@@ -36,7 +45,7 @@ async function login(userName:string = config.user_name, pwd:string = config.pas
 }
 
 async function downloadPic() {
-    const codePath = path.resolve(__dirname,"../code.jpg")
+    const codePath = path.join(os.homedir(),"/eod/code.jpg")
     //解析图片
     const res = await agent.get(PIC_URL).buffer(true).parse(superagent.parse.image)
     //必须要对图片瞎jb处理下才能识别
@@ -44,7 +53,7 @@ async function downloadPic() {
     return fs.readFileSync(codePath).toString("base64")
 }
 
-async function getCode(token: string, pic:string): Promise<String> {
+async function getCode(token: string, pic:string): Promise<string> {
     try {
         const res = await agent.post(OCR_URL)
             .query({"access_token":token})

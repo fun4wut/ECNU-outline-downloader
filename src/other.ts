@@ -32,3 +32,4 @@ export function emptyConfig() {
 export const rootDir = path.join(process.cwd(),"/files")
 
 export const mkdirpp: (dirPath:string)=>void = promisify(mkdirp)
+

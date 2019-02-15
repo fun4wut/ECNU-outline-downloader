@@ -7,10 +7,10 @@
 ![](https://img.shields.io/npm/types/ecnu-outliner.svg?style=flat)
 
 ## Intro
-本工具致力于解决下载ECNU的教学大纲繁琐的问题，仅需输入账户名，密码，百度API的密钥【用于图像识别】，和要下载的课程序号即可下载所有的课程大纲与本地，**现已发布至NPM** 🎉
+本工具致力于解决下载ECNU的教学大纲繁琐的问题，仅需输入账户名，密码，百度API的密钥【用于图像识别,可选】，和要下载的课程序号即可下载所有的课程大纲与本地，**现已发布至NPM** 🎉
 
 ## Preparation
-### 获取百度云API的密钥
+### ***可选项--获取百度云API的密钥***
 1.  浏览器进入 [百度云控制台](https://console.bce.baidu.com)，完成注册/登陆操作
 2.  右侧边栏找到`人工智能-文字识别`选项，点击进入
 3.  点击创建应用，填写完简易的表格，拿到AK【client_id】和SK【client_secret】
@@ -47,7 +47,6 @@ eod refresh # 获取token
 ## Usage
 ```
 Options:
-  -V, --version              output the version number
   -g, --grade <grade>        specify the grade
   -s, --semester <semester>  specify the semester
   -u, --username <username>  specify the username
@@ -55,11 +54,12 @@ Options:
   -A, --AK <AK>              specify the client_id
   -S, --SK <SK>              specify the client_secret
   -o, --output <output>      specify the output dir
+  -H, --hand-mode            use the handMode to input code instead of AI
   -h, --help                 output usage information
 
 Commands:
   go <subject>               下载指定学科的大纲
-  show <param>               检查参数
+  show                       检查配置
   refresh                    刷新TOKEN
   init                       初始化
 ```
@@ -73,7 +73,11 @@ eod go COMS -g 1 -s 1
 ```bash
 eod go MATH -g 2 -s 2 -o <abspath>
 ```
-
+手动输入验证码下载大二上学期的所有体育课的大纲
+【图片文件保存在~/eod/code.jpg】
+```bash
+eod go CLUB -g 2 -s 1 -H
+```
 修改用户名
 ```bash
 eod init -u <username>
@@ -81,7 +85,7 @@ eod init -u <username>
 ## TODO
 - [ ] 细化并发的粒度
 - [ ] 支持更复杂检索条件
-- [ ] 加入手打验证码的选项，避免了申请百度云密钥的繁琐
+- [x] 加入手打验证码的选项，避免了申请百度云密钥的繁琐
 - [x] 做成二进制包，发布至NPM
 
 ## Contribution
