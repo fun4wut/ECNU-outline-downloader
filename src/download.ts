@@ -109,7 +109,7 @@ async function downloadBatch(subject: string, grade: number, semester: number,ro
     
 }
 
-downloadBatch("COMC",2,2)
+// downloadBatch("COMC",2,2)
 
 
 

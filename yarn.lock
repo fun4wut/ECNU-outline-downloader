@@ -1249,7 +1249,7 @@ growly@^1.3.0:
   resolved "http://registry.npm.taobao.org/growly/download/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-handlebars@^4.0.11:
+handlebars@^4.1.0:
   version "4.1.0"
   resolved "http://registry.npm.taobao.org/handlebars/download/handlebars-4.1.0.tgz#0d6a6f34ff1f63cecec8423aa4169827bf787c3a"
   integrity sha1-DWpvNP8fY87OyEI6pBaYJ794fDo=
@@ -1610,9 +1610,9 @@ isstream@~0.1.2:
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
 istanbul-api@^2.0.8:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/istanbul-api/download/istanbul-api-2.1.0.tgz#37ab0c2c3e83065462f5254b94749d6157846c4e"
-  integrity sha1-N6sMLD6DBlRi9SVLlHSdYVeEbE4=
+  version "2.1.1"
+  resolved "http://registry.npm.taobao.org/istanbul-api/download/istanbul-api-2.1.1.tgz#194b773f6d9cbc99a9258446848b0f988951c4d0"
+  integrity sha1-GUt3P22cvJmpJYRGhIsPmIlRxNA=
   dependencies:
     async "^2.6.1"
     compare-versions "^3.2.1"
@@ -1622,7 +1622,7 @@ istanbul-api@^2.0.8:
     istanbul-lib-instrument "^3.1.0"
     istanbul-lib-report "^2.0.4"
     istanbul-lib-source-maps "^3.0.2"
-    istanbul-reports "^2.1.0"
+    istanbul-reports "^2.1.1"
     js-yaml "^3.12.0"
     make-dir "^1.3.0"
     minimatch "^3.0.4"
@@ -1673,12 +1673,12 @@ istanbul-lib-source-maps@^3.0.1, istanbul-lib-source-maps@^3.0.2:
     rimraf "^2.6.2"
     source-map "^0.6.1"
 
-istanbul-reports@^2.1.0:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/istanbul-reports/download/istanbul-reports-2.1.0.tgz#87b8b55cd1901ba1748964c98ddd8900ce306d59"
-  integrity sha1-h7i1XNGQG6F0iWTJjd2JAM4wbVk=
+istanbul-reports@^2.1.1:
+  version "2.1.1"
+  resolved "http://registry.npm.taobao.org/istanbul-reports/download/istanbul-reports-2.1.1.tgz#72ef16b4ecb9a4a7bd0e2001e00f95d1eec8afa9"
+  integrity sha1-cu8WtOy5pKe9DiAB4A+V0e7Ir6k=
   dependencies:
-    handlebars "^4.0.11"
+    handlebars "^4.1.0"
 
 jest-changed-files@^24.0.0:
   version "24.0.0"
@@ -2001,7 +2001,7 @@ jest-worker@^24.0.0:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
-jest@^24.1.0:
+jest@^24.0.0:
   version "24.1.0"
   resolved "http://registry.npm.taobao.org/jest/download/jest-24.1.0.tgz#b1e1135caefcf2397950ecf7f90e395fde866fd2"
   integrity sha1-seETXK788jl5UOz3+Q45X96Gb9I=
