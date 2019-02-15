@@ -1,7 +1,8 @@
 # ECNU-outline-downloader 
-[![Build Status](https://travis-ci.org/fun4wut/ECNU-outline-downloader.svg?branch=master)](https://travis-ci.org/fun4wut/ECNU-outline-downloader)
-[![npm version](https://badge.fury.io/js/ecnu-outliner.svg)](https://badge.fury.io/js/ecnu-outliner)
+![](https://img.shields.io/travis/fun4wut/ECNU-outline-downloader.svg?style=flat)
+![](https://img.shields.io/npm/v/ecnu-outliner.svg?style=flat)
 ![](https://img.shields.io/github/repo-size/fun4wut/ECNU-outline-downloader.svg?style=flat)
+![](https://img.shields.io/bundlephobia/min/ecnu-outliner.svg?style=flat)
 ![](https://img.shields.io/github/license/fun4wut/ECNU-outline-downloader.svg?style=flat)
 ![](https://img.shields.io/node/v/ecnu-outliner.svg?style=flat)
 ![](https://img.shields.io/npm/types/ecnu-outliner.svg?style=flat)
