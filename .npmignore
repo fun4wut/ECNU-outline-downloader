@@ -10,3 +10,4 @@ config.json
 yarn-error.log
 *.config.js
 .travis.yml
+*.js.map

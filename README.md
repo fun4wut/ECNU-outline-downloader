@@ -1,6 +1,10 @@
 # ECNU-outline-downloader 
 [![Build Status](https://travis-ci.org/fun4wut/ECNU-outline-downloader.svg?branch=master)](https://travis-ci.org/fun4wut/ECNU-outline-downloader)
 [![npm version](https://badge.fury.io/js/ecnu-outliner.svg)](https://badge.fury.io/js/ecnu-outliner)
+![](https://img.shields.io/github/repo-size/fun4wut/ECNU-outline-downloader.svg?style=flat)
+![](https://img.shields.io/github/license/fun4wut/ECNU-outline-downloader.svg?style=flat)
+![](https://img.shields.io/node/v/ecnu-outliner.svg?style=flat)
+![](https://img.shields.io/npm/types/ecnu-outliner.svg?style=flat)
 
 ## Intro
 本工具致力于解决下载ECNU的教学大纲繁琐的问题，仅需输入账户名，密码，百度API的密钥【用于图像识别】，和要下载的课程序号即可下载所有的课程大纲与本地，**现已发布至NPM** 🎉
