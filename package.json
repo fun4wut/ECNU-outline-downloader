@@ -1,6 +1,6 @@
 {
   "name": "ecnu-outliner",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./lib/index.js",
   "license": "MIT",
   "description": "批量下载ECNU的课程大纲至本地",
@@ -46,7 +46,7 @@
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^8.0.0",
     "@types/superagent": "^3.8.6",
-    "jest": "^24.1.0",
+    "jest": "^24.0.0",
     "ts-jest": "^23.10.5",
     "typescript": "^3.3.3"
   }
