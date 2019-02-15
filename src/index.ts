@@ -7,8 +7,7 @@ import {refreshToken, saveConfig} from './login'
 import process from 'process'
 
 
-program.version("0.1.3")
-    .option("-g, --grade <grade>","specify the grade",)
+program.option("-g, --grade <grade>","specify the grade",)
     .option("-s, --semester <semester>","specify the semester")
     .option("-u, --username <username>","specify the username")
     .option("-p, --password <password>","specify the password")

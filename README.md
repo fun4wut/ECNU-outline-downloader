@@ -36,7 +36,7 @@ npm i -g ecnu-outliner
 配置文件路径在 ~/eod/config.json
 ### 使用命令行进行配置
 ```bash
-eod -u <username> -p <password> -A <AK> -S <SK> # 输入关键信息，获取token
+eod init -u <username> -p <password> -A <AK> -S <SK> # 输入关键信息，获取token
 ```
 ### 使用配置文件进行配置
 ```bash
