@@ -1,9 +1,16 @@
 {
   "name": "ecnu-outliner",
-  "version": "0.0.2",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "./lib/index.js",
   "license": "MIT",
   "description": "批量下载ECNU的课程大纲至本地",
+  "bin": {
+    "eod": "./bin/eod"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/fun4wut/ECNU-outline-downloader"
@@ -17,8 +24,9 @@
   "author": "Simon Ni",
   "bugs": "https://github.com/fun4wut/ECNU-outline-downloader/issues",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "start": "node --no-warnings ./lib/index.js"
+    "build": "tsc",
+    "start": "node --no-warnings ./lib/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -33,10 +41,13 @@
     "@types/commander": "^2.12.2",
     "@types/crypto-js": "^3.1.43",
     "@types/images": "^2.2.2",
+    "@types/jest": "^24.0.4",
     "@types/lodash": "^4.14.120",
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^8.0.0",
     "@types/superagent": "^3.8.6",
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.3.3"
   }
 }
